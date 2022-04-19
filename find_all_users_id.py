@@ -12,6 +12,9 @@ def find_all_users_id(data: dict)->list:
     for user in data["messages"]:
         if user.get("actor_id") and not(user.get("actor_id") in users_id):
             users_id.append(user.get("actor_id"))
+    for i in users_id:
+        if 'channel' in i:
+            users_id.remove(i)
 
     return users_id
 
