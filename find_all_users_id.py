@@ -10,8 +10,8 @@ def find_all_users_id(data: dict)->list:
     """
     users_id = []
     for user in data["messages"]:
-        if user["type"]=="service":
-            users_id.append(user["actor_id"])
+        if user.get("actor_id"):
+            users_id.append(user.get("actor_id"))
 
     return users_id
 
