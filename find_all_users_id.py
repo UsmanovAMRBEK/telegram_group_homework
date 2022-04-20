@@ -11,9 +11,9 @@ def find_all_users_id(data: dict)->list:
     """
     users_id = []
     for user in data["messages"]:
-        if user['type']=="service" and not(user['actor_id'] in users_id):
-            users_id.append(user["actor_id"])
-        elif user['type']=="message" and not(user['from_id'] in users_id):
+        # if user['type']=="service" and not(user['actor_id'] in users_id):
+        #     users_id.append(user["actor_id"])
+        if user['type']=="message" and not(user['from_id'] in users_id):
             users_id.append(user["from_id"])
 
     return users_id
